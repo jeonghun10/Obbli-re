@@ -1,8 +1,17 @@
 import React from 'react';
-import './app.css';
+import './App.css';
+import Footer from './component/footer/footer';
+import Navbar from './component/navbar/navbar';
+import Home from './component/home/home';
 
 function App() {
-  return <h1>Hello :)</h1>;
+  return (
+    <>
+      <Navbar />
+      <Home />
+      <Footer />
+    </>
+  );
 }
 
 export default App;
