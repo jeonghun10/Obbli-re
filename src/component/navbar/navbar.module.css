@@ -1,3 +1,13 @@
+a,
+a:focus,
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+  color: #fff;
+}
+
 .home {
   padding-top: 5rem;
 }
@@ -26,10 +36,11 @@
   margin: 0 0.8em;
   transition: transform 250ms ease-in;
   cursor: pointer;
+  color: #036;
 }
 
 .menu_item:hover {
-  background-color: #036;
+  background-color: #3f5c94;
   color: #fff;
   transform: scale(1.02);
 }

@@ -90,7 +90,6 @@ const Home = props => {
             </p>
           </div>
         </div>
-
         <img src='/img/homeImg5.png' className={styles.section4_img} />
       </section>
     </>
