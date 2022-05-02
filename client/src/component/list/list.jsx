@@ -1,20 +1,13 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import styles from './list.module.css';
-import XMLParser from 'react-xml-parser';
 
 const List = () => {
   useEffect(() => {
     axios
-      .get(
-        'https://api.allorigins.win/get?url=http://apis.data.go.kr/6290000/eventbaseinfo/geteventbaseinfo?serviceKey=cECPlpdsjgQCfRkH8YqoYlNPAyVaHspN6/edAe0v7AsMYSUd56n/ZHwNERkkI/v2Ac2uj6fsVzUXm4HDBzTtNg=='
-      )
-      .then(result =>
-        console.log(
-          new XMLParser().parseFromString(result.data.contents).children[1]
-            .children
-        )
-      );
+      .get('http://localhost:8000/')
+      .then(result => console.log(result))
+      .catch(err => console.log(err));
   }, []);
   return (
     <section className={styles.container}>
