@@ -1,14 +1,16 @@
 import React from 'react';
 import styles from './list_item.module.css';
 
+const DEFAULT_IMG = '/img/user.png';
 const List_item = ({ item }) => {
-  const { eventBeginDate, eventNm, eventVenue, manageAgcNm } = item;
-  console.log(item);
+  const { eventBeginDate, eventNm, eventVenue, manageAgcNm, imgUrl } = item;
+  const defaultImage = imgUrl || DEFAULT_IMG;
   return (
     <li className={styles.item}>
-      <span className={styles.eventNm}>{eventNm}</span>
-      <span className={styles.manageAgcNm}>{manageAgcNm}</span>
-      <span className={styles.beginDate}>{eventBeginDate}</span>
+      <img src={defaultImage} alt='' className={styles.img} />
+      <div className={styles.eventNm}>{eventNm}</div>
+      <div className={styles.manageAgcNm}>{manageAgcNm}</div>
+      <div className={styles.beginDate}>{eventBeginDate}</div>
     </li>
   );
 };
