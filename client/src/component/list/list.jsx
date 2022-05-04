@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import List_item from '../list_item/list_item';
 import styles from './list.module.css';
 
 const List = ({ listData }) => {
+  const history = useNavigate();
   return (
     <section className={styles.container}>
       <form className={styles.search}>

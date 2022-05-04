@@ -1,3 +1,7 @@
+a {
+  color: #000;
+}
+
 .item {
   display: flex;
   flex-direction: column;

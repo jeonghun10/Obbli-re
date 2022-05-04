@@ -6,6 +6,7 @@ import Home from './component/home/home';
 import Login from './component/login/login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import List from './component/list/list';
+import List_item_detail from './component/list_item_detail/list_item_detail';
 
 function App({ authService, getData }) {
   const [listData, setListData] = useState([]);
@@ -37,6 +38,10 @@ function App({ authService, getData }) {
             element={<Login authService={authService} />}
           ></Route>
           <Route path='/list' element={<List listData={listData} />}></Route>
+          <Route
+            path='/list/detail/:id'
+            element={<List_item_detail listData={listData} />}
+          ></Route>
         </Routes>
         <Footer />
       </BrowserRouter>
