@@ -7,7 +7,7 @@ import Login from './component/login/login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import List from './component/list/list';
 
-function App({ authService }) {
+function App({ authService, getData }) {
   return (
     <div className={styles.login}>
       <BrowserRouter>
@@ -18,7 +18,7 @@ function App({ authService }) {
             path='/login'
             element={<Login authService={authService} />}
           ></Route>
-          <Route path='/list' element={<List />}></Route>
+          <Route path='/list' element={<List getData={getData} />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

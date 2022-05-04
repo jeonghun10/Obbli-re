@@ -1,14 +1,15 @@
-import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import List_item from '../list_item/list_item';
 import styles from './list.module.css';
 
-const List = () => {
+const List = ({ getData }) => {
+  const [listData, setListData] = useState([]);
   useEffect(() => {
-    axios
-      .get('http://localhost:8000/')
-      .then(result => console.log(result))
-      .catch(err => console.log(err));
+    getData
+      .getData('http://localhost:8000')
+      .then(result => setListData(result.data.EventBaseInfo));
   }, []);
+
   return (
     <section className={styles.container}>
       <form className={styles.search}>
@@ -20,15 +21,12 @@ const List = () => {
         <button>검색</button>
       </form>
       <section className={styles.list}>
-        <div className={styles.list_menu}>
-          <div className={styles.list_menu_date}></div>
-          <div className={styles.list_menu_title}></div>
-          <div className={styles.list_menu_location}></div>
-          <div className={styles.list_menu_name}></div>
-        </div>
-        <div className={styles.list_item}></div>
+        <ul className={styles.list_item}>
+          {listData.map(el => {
+            return <List_item item={el} key={el.id} />;
+          })}
+        </ul>
       </section>
-      ;
     </section>
   );
 };
