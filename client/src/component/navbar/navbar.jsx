@@ -15,7 +15,6 @@ const Navbar = memo(({ authService }) => {
     }
     history('/login');
   };
-
   return (
     <section className={styles.home}>
       <nav className={styles.navbar}>

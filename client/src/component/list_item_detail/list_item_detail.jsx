@@ -32,35 +32,37 @@ const List_item_detail = ({ listData }) => {
         </div>
       </div>
       <table className={styles.table}>
-        <tr className={styles.addr}>
-          <th>주 소</th>
-          <td>{addrRoad}</td>
-        </tr>
-        <tr className={styles.enterAge}>
-          <th>입장 나이</th>
-          <td>{enterAge}</td>
-        </tr>
-        <tr className={styles.eventTerm}>
-          <th>기 간</th>
-          <td>{`${eventBeginDate} ~ ${eventEndDate}`}</td>
-        </tr>
+        <tbody>
+          <tr className={styles.addr}>
+            <th>주 소</th>
+            <td>{addrRoad}</td>
+          </tr>
+          <tr className={styles.enterAge}>
+            <th>입장 나이</th>
+            <td>{enterAge}</td>
+          </tr>
+          <tr className={styles.eventTerm}>
+            <th>기 간</th>
+            <td>{`${eventBeginDate} ~ ${eventEndDate}`}</td>
+          </tr>
 
-        <tr className={styles.eventVenue}>
-          <th>공연 장소</th>
-          <td>{eventVenue}</td>
-        </tr>
-        <tr className={styles.manageAgcNm}>
-          <th>주 관</th>
-          <td>{manageAgcNm}</td>
-        </tr>
-        <tr className={styles.price}>
-          <th>가 격</th>
-          <td>{price}</td>
-        </tr>
-        <tr className={styles.tel}>
-          <th>전화번호</th>
-          <td>{tel}</td>
-        </tr>
+          <tr className={styles.eventVenue}>
+            <th>공연 장소</th>
+            <td>{eventVenue}</td>
+          </tr>
+          <tr className={styles.manageAgcNm}>
+            <th>주 관</th>
+            <td>{manageAgcNm}</td>
+          </tr>
+          <tr className={styles.price}>
+            <th>가 격</th>
+            <td>{price}</td>
+          </tr>
+          <tr className={styles.tel}>
+            <th>전화번호</th>
+            <td>{tel}</td>
+          </tr>
+        </tbody>
       </table>
       <Map lat={lat} lng={lng}></Map>
     </section>

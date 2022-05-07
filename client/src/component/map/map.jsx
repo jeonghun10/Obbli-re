@@ -15,6 +15,7 @@ const Map = ({ lat, lng }) => {
       position: markerPosition,
     });
     marker.setMap(map);
+    map.setZoomable(false);
   };
   useEffect(() => {
     initMap();

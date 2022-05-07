@@ -7,16 +7,15 @@ import Login from './component/login/login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import List from './component/list/list';
 import List_item_detail from './component/list_item_detail/list_item_detail';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 function App({ authService, getData }) {
   const [listData, setListData] = useState([]);
-  let count = 0;
   useEffect(() => {
     getData
       .getData('https://obbli-proxy-test.herokuapp.com/')
       .then(result => diffDate(result.data.EventBaseInfo));
-    count++;
-    console.log(count);
   }, []);
   const diffDate = data => {
     const newArr = [...data];
@@ -29,6 +28,12 @@ function App({ authService, getData }) {
       el.diff = result > 0 ? `${result}` : `+${result * -1}`;
     });
     setListData(newArr);
+  };
+  const arrowUp = () => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
   return (
     <div className={styles.login}>
@@ -48,6 +53,11 @@ function App({ authService, getData }) {
         </Routes>
         <Footer />
       </BrowserRouter>
+      <FontAwesomeIcon
+        icon={faArrowUp}
+        className={styles.arrowUp}
+        onClick={arrowUp}
+      />
     </div>
   );
 }

@@ -118,6 +118,24 @@ p {
   width: 90%;
   padding: 4em 0;
 }
+.arrowUp {
+  width: 0.8em;
+  height: 0.8em;
+  padding: 0.3em;
+  position: fixed;
+  font-size: 2rem;
+  right: 1em;
+  bottom: 1em;
+  z-index: 5;
+  color: #fff;
+  background-color: #036;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 200ms ease-in;
+}
+.arrowUp:hover {
+  transform: scale(1.04);
+}
 
 @media screen and (max-width: 768px) {
   .section1 {

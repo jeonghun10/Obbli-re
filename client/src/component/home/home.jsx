@@ -84,6 +84,7 @@ const Home = props => {
           </div>
           <div className={styles.service}>
             <FontAwesomeIcon icon={faWonSign} className={styles.service_icon} />
+
             <h2 className={styles.service_title}>무료 정보 제공</h2>
             <p className={styles.service_description}>
               Obbli는 찾는데 어떤 비용도 들지 않습니다.
