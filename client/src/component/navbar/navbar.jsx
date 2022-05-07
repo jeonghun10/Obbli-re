@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import styles from './navbar.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 
-const Navbar = ({ authService }) => {
+const Navbar = memo(({ authService }) => {
   const [active, setActive] = useState(false);
   let activeBtnStyle = active ? styles.active : '';
   const userId = useLocation().state;
@@ -51,6 +51,6 @@ const Navbar = ({ authService }) => {
       </nav>
     </section>
   );
-};
+});
 
 export default Navbar;

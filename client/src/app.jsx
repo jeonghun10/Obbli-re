@@ -10,11 +10,14 @@ import List_item_detail from './component/list_item_detail/list_item_detail';
 
 function App({ authService, getData }) {
   const [listData, setListData] = useState([]);
+  let count = 0;
   useEffect(() => {
     getData
-      .getData('http://localhost:8000')
+      .getData('https://obbli-proxy-test.herokuapp.com/')
       .then(result => diffDate(result.data.EventBaseInfo));
-  }, []);
+    count++;
+    console.log(count);
+  });
   const diffDate = data => {
     const newArr = [...data];
     newArr.map(el => {
