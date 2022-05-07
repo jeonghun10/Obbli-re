@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './list_item_detail.module.css';
 import { useParams } from 'react-router-dom';
+import Map from '../map/map';
 
 const List_item_detail = ({ listData }) => {
   const { id } = useParams();
@@ -17,28 +18,51 @@ const List_item_detail = ({ listData }) => {
     eventVenue,
     lat,
     lng,
-    manageAgcNmk,
+    manageAgcNm,
     price,
     tel,
   } = detailData[0];
   console.log(detailData);
   return (
     <section className={styles.detail}>
-      <ul>
-        <li className={styles.title}>
+      <div className={styles.detail_list}>
+        <div className={styles.title}>
           <h1 className={styles.title_name}>{eventNm}</h1>
           <span className={styles.title_diff}>{diff}</span>
-        </li>
-        <li className={styles.addr}>{addrRoad}</li>
-        <li className={styles.enterAge}>{enterAge}</li>
-        <li
-          className={styles.eventTerm}
-        >{`${eventBeginDate} ~ ${eventEndDate}`}</li>
-        <li className={styles.eventVenue}>{eventVenue}</li>
-        <li className={styles.manageAgcNmk}>{manageAgcNmk}</li>
-        <li className={styles.price}>{price}</li>
-        <li className={styles.tel}>{tel}</li>
-      </ul>
+        </div>
+      </div>
+      <table className={styles.table}>
+        <tr className={styles.addr}>
+          <th>주 소</th>
+          <td>{addrRoad}</td>
+        </tr>
+        <tr className={styles.enterAge}>
+          <th>입장 나이</th>
+          <td>{enterAge}</td>
+        </tr>
+        <tr className={styles.eventTerm}>
+          <th>기 간</th>
+          <td>{`${eventBeginDate} ~ ${eventEndDate}`}</td>
+        </tr>
+
+        <tr className={styles.eventVenue}>
+          <th>공연 장소</th>
+          <td>{eventVenue}</td>
+        </tr>
+        <tr className={styles.manageAgcNm}>
+          <th>주 관</th>
+          <td>{manageAgcNm}</td>
+        </tr>
+        <tr className={styles.price}>
+          <th>가 격</th>
+          <td>{price}</td>
+        </tr>
+        <tr className={styles.tel}>
+          <th>전화번호</th>
+          <td>{tel}</td>
+        </tr>
+      </table>
+      <Map lat={lat} lng={lng}></Map>
     </section>
   );
 };

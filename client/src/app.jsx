@@ -17,7 +17,7 @@ function App({ authService, getData }) {
       .then(result => diffDate(result.data.EventBaseInfo));
     count++;
     console.log(count);
-  });
+  }, []);
   const diffDate = data => {
     const newArr = [...data];
     newArr.map(el => {
