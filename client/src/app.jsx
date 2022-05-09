@@ -13,7 +13,6 @@ import List_map from './component/list_map/list_map';
 
 function App({ authService, getData }) {
   const [listData, setListData] = useState([]);
-  const [pageNo, setPageNo] = useState(1);
   const arrowUp = () => {
     window.scroll({
       top: 0,
