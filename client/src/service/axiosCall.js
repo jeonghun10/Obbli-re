@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 class AxiosCall {
-  async getData(url) {
+  async getData(url, pageNo) {
     let response;
     try {
       response = await axios.get(url, {
-        params: { api: process.env.REACT_APP_SERVER_API_KEY },
+        params: { pageNo: pageNo },
       });
     } catch (e) {
       console.log(e);

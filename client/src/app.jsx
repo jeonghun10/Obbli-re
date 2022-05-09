@@ -9,19 +9,21 @@ import List from './component/list/list';
 import List_item_detail from './component/list_item_detail/list_item_detail';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import List_map from './component/list_map/list_map';
 
 function App({ authService, getData }) {
   const [listData, setListData] = useState([]);
-  useEffect(() => {
-    getData
-      .getData('https://obbli-proxy-test.herokuapp.com/')
-      .then(result => diffDate(result.data.EventBaseInfo));
-  }, []);
+  const [pageNo, setPageNo] = useState(1);
+  const arrowUp = () => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   const diffDate = data => {
     const newArr = [...data];
     newArr.map(el => {
       const masTime = new Date(el.eventEndDate);
-
       const todayTime = new Date();
       const diff = masTime - todayTime;
       const result = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -29,12 +31,12 @@ function App({ authService, getData }) {
     });
     setListData(newArr);
   };
-  const arrowUp = () => {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
+
+  useEffect(() => {
+    getData
+      .getData('https://obbli-proxy-test.herokuapp.com/')
+      .then(res => diffDate(res.data.EventBaseInfo));
+  }, []);
   return (
     <div className={styles.login}>
       <BrowserRouter>
@@ -45,10 +47,17 @@ function App({ authService, getData }) {
             path='/login'
             element={<Login authService={authService} />}
           ></Route>
-          <Route path='/list' element={<List listData={listData} />}></Route>
+          <Route
+            path='/list'
+            element={<List listData={listData} getData={getData} />}
+          ></Route>
           <Route
             path='/list/detail/:id'
             element={<List_item_detail listData={listData} />}
+          ></Route>
+          <Route
+            path='/map'
+            element={<List_map listData={listData}></List_map>}
           ></Route>
         </Routes>
         <Footer />

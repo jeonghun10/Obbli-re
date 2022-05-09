@@ -1,13 +1,11 @@
 import React from 'react';
 import styles from './list_item_detail.module.css';
 import { useParams } from 'react-router-dom';
-import Map from '../map/map';
+import MapView from '../mapView/mapView';
 
 const List_item_detail = ({ listData }) => {
   const { id } = useParams();
   let detailData = listData && listData.filter(el => el.id === id);
-  console.log(id);
-  console.log(listData);
   const {
     addrRoad,
     diff,
@@ -22,13 +20,11 @@ const List_item_detail = ({ listData }) => {
     price,
     tel,
   } = detailData[0];
-  console.log(detailData);
   return (
     <section className={styles.detail}>
       <div className={styles.detail_list}>
         <div className={styles.title}>
           <h1 className={styles.title_name}>{eventNm}</h1>
-          <span className={styles.title_diff}>{diff}</span>
         </div>
       </div>
       <table className={styles.table}>
@@ -43,7 +39,10 @@ const List_item_detail = ({ listData }) => {
           </tr>
           <tr className={styles.eventTerm}>
             <th>기 간</th>
-            <td>{`${eventBeginDate} ~ ${eventEndDate}`}</td>
+            <td>
+              {`${eventBeginDate} ~ ${eventEndDate}`}{' '}
+              <span className={styles.title_diff}>{`D${diff}`}</span>
+            </td>
           </tr>
 
           <tr className={styles.eventVenue}>
@@ -59,12 +58,12 @@ const List_item_detail = ({ listData }) => {
             <td>{price}</td>
           </tr>
           <tr className={styles.tel}>
-            <th>전화번호</th>
+            <th>전화 번호</th>
             <td>{tel}</td>
           </tr>
         </tbody>
       </table>
-      <Map lat={lat} lng={lng}></Map>
+      <MapView data={detailData} draggable={false}></MapView>
     </section>
   );
 };

@@ -20,11 +20,10 @@
   padding: 0;
 }
 .title_diff {
-  background-color: #036;
+  background-color: #3f5c94;
   color: #fff;
-  padding: 0.4em;
-  height: 2em;
-  transition: all 200ms ease-in;
+  padding: 0.3em;
+  margin-left: 1em;
 }
 
 .table {
@@ -39,7 +38,7 @@
   align-items: center;
 }
 .table tr th {
-  width: 25%;
+  width: 30%;
   height: 100%;
   padding: 0.6em;
   text-align: center;

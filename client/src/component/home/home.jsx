@@ -6,6 +6,8 @@ import {
   faWonSign,
   faMusic,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+
 const Home = props => {
   return (
     <>
@@ -18,8 +20,12 @@ const Home = props => {
             Obbli를 이용해 공고를 올려 손쉽게 연주자를 찾고<br></br>
             지도를 통해 공연 장소를 공유할 수 있습니다.
           </p>
-          <button className={styles.section_btn}>공고 보러 가기</button>
-          <button className={styles.section_btn}>지도에서 보러 가기</button>
+          <Link to='/list'>
+            <button className={styles.section_btn}>공고 보러 가기</button>
+          </Link>
+          <Link to='/map'>
+            <button className={styles.section_btn}>지도에서 보러 가기</button>
+          </Link>
         </div>
         <img src='/img/homeImg1.png' className={styles.section1_img} />
       </section>
@@ -34,8 +40,12 @@ const Home = props => {
             수 있습니다.<br></br>간단하게 본인 경력을 입력하여 쉽게 지원할 수
             있습니다.
           </p>
-          <button className={styles.section_btn}>공고 보러 가기</button>
-          <button className={styles.section_btn}>지도에서 보러 가기</button>
+          <Link to='/list'>
+            <button className={styles.section_btn}>공고 보러 가기</button>
+          </Link>
+          <Link to='/map'>
+            <button className={styles.section_btn}>지도에서 보러 가기</button>
+          </Link>
         </div>
       </section>
       <section className={styles.section3}>
