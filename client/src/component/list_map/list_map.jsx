@@ -3,7 +3,7 @@ import List_map_item from '../list_map_item/list_map_item';
 import MapView from '../mapView/mapView';
 import styles from './list_map.module.css';
 const List_map = ({ listData }) => {
-  const [userInfo, setUserInfo] = useState([]);
+  const [userInfo, setUserInfo] = useState(listData);
   const dragMapInfo = data => {
     setUserInfo(data);
   };
